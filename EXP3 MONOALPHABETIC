@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char alpha[100]="abcdefghijklmnopqrstuvwxyz",key[100]="zyxwvutsrqponmlkjihgfedba",cipher[100],plain[100];
+	int m=0,index[100];
+	printf("enter the plain text:");
+	scanf("%s",&plain);
+	for(int i=0;i<strlen(plain);i++){
+		for(int j=0;j<strlen(alpha);j++){
+			if(plain[i]==alpha[j]){
+				index[m]=j;
+				m++;
+			}
+		}
+	}
+	printf("cipher text is:");
+	for(int i=0;i<strlen(plain);i++){
+		cipher[i]=key[index[i]];
+		printf("%c",cipher[i]);
+	}
+	printf("\nplain is:");
+	for(int i=0;i<strlen(plain);i++){
+		plain[i]=alpha[index[i]];
+		printf("%c",plain[i]);
+	}
+	return 0;
+}
